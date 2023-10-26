@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 @Data
@@ -13,12 +16,15 @@ import lombok.Data;
 public class StudentEntity {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private int id;
 	
+	@NotNull(message = "Enter your name")
 	private String name;
 	
-	private int phone;
+	@NotNull(message = "Enter your phone no.")
+	private Long phone;
 	
+	@NotNull(message = "Enter your city")
 	private String city;
 }
