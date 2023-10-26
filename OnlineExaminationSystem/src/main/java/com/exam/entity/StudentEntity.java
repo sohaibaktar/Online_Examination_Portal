@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
@@ -16,9 +17,12 @@ public class StudentEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
+	@NotNull(message = "Name shouldn`t be null")
 	private String name;
 	
-	private int phone;
+	@NotNull(message = "Enter phoneNo.")
+	private Long phone;
 	
+	@NotNull(message = "Enter City")
 	private String city;
 }
