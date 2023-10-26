@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.exam.entity.StudentEntity;
@@ -18,8 +19,8 @@ public class ExamServiceImpl implements ExamService {
 	
 	@Override
 	public StudentEntity addStudent(StudentEntity studentEntity) {
-		
-		return examRepository.save(studentEntity);
+		StudentEntity stEntity = examRepository.save(studentEntity);
+		return stEntity;
 	}
 
 	@Override
