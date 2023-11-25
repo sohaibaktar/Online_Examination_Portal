@@ -1,16 +1,21 @@
 package com.exam.services;
 
 import java.util.List;
-
-import org.springframework.http.ResponseEntity;
+import java.util.Optional;
 
 import com.exam.entity.StudentEntity;
 
-public interface ExamService {
+public interface StudentService {
 
 	StudentEntity addStudent(StudentEntity studentEntity); //Adding Students
 	
 	List<StudentEntity> fetchAllStudentEntities(); //Fetching all Students
 
 	StudentEntity getStudentById(int id); //Fetching Students by there ID
+	
+	Optional<StudentEntity> login(StudentEntity inputCsmailpass); //Login email and password
+
+	boolean isEmailExists(String email); //Checking email already exists or not
+
+	boolean isPhoneExists(Long phone);	//Checking phone already exists or not
 }
