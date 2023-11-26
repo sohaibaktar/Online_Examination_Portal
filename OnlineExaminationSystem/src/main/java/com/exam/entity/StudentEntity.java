@@ -1,9 +1,12 @@
 package com.exam.entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -34,11 +37,15 @@ public class StudentEntity {
 	
 	@NotNull(message = "Enter your School Name")
 	@NotBlank(message = "PLease Enter your School Name")
-	private String schooleName;
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "school_id", referencedColumnName = "sId")
+	private SchoolEntity school_id;
 	
 	@NotNull(message = "Enter your Board Name")
 	@NotBlank(message = "PLease Enter your Board Name")
-	private String boardName;
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "board_id", referencedColumnName = "bId")
+	private BoardEntity board_id;
 	
 	@NotNull(message = "Enter your password")
 	@NotBlank(message = "Please Set your Password")

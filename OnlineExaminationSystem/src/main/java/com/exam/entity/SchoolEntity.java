@@ -18,3 +18,4 @@ public class SchoolEntity {
 	private String schoolName;
 	private String location;
 }
+//Each school have their Rank by the students (Participations, marks , teachers)
