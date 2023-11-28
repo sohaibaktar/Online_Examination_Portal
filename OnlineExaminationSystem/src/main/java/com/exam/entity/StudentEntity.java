@@ -35,14 +35,10 @@ public class StudentEntity {
 	@NotNull(message = "Enter your phone no.")
 	private Long phone;
 	
-	@NotNull(message = "Enter your School Name")
-	@NotBlank(message = "PLease Enter your School Name")
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "school_id", referencedColumnName = "sId")
 	private SchoolEntity school_id;
 	
-	@NotNull(message = "Enter your Board Name")
-	@NotBlank(message = "PLease Enter your Board Name")
 	@ManyToOne(cascade = CascadeType.MERGE)
 	@JoinColumn(name = "board_id", referencedColumnName = "bId")
 	private BoardEntity board_id;
