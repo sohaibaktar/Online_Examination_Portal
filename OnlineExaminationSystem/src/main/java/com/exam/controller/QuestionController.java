@@ -29,6 +29,5 @@ public class QuestionController {
 		
 		return questionService.getQuestionById(id);
 	}
-	
 
 }
