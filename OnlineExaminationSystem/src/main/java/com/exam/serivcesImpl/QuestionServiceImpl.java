@@ -35,4 +35,10 @@ public class QuestionServiceImpl implements QuestionService {
 		return null;
 	}
 
+	@Override
+	public QuestionListEntity addQuestionList(QuestionListEntity questionListEntity) {
+		
+		return questionRepository.save(questionListEntity);
+	}
+
 }
