@@ -21,4 +21,21 @@ public class SchoolServiceImpl implements SchoolService {
 		return schoolRepo.findAll();
 	}
 
+	@Override
+	public SchoolEntity addSchool(SchoolEntity schoolEntity) {
+
+		return schoolRepo.save(schoolEntity);
+	}
+
+	@Override
+	public String deleteSchool(int id) {
+
+		if(schoolRepo.findById(id).isPresent()) {
+			
+			schoolRepo.deleteById(id);
+			return "Successfully remove the school";
+		}
+		return "Sorry no such school found";
+	}
+
 }

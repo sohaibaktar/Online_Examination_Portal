@@ -59,7 +59,7 @@ public class StudentController {
 	public ResponseEntity<Object> login(@RequestBody StudentEntity inputCsmailpass) {
 		Optional<StudentEntity> student = studentService.login(inputCsmailpass);			
 			if (student.isPresent()) {
-			       return ResponseEntity.ok(Collections.singletonMap("studentId", student.get().getId()));
+			       return ResponseEntity.ok(student.get());
 			} else {
 			      return ResponseEntity.badRequest().body("Invalid email or password");
 			}

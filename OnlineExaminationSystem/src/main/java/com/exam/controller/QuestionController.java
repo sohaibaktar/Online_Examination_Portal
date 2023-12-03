@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.exam.entity.QuestionListEntity;
-import com.exam.services.QuestionService;
+import com.exam.services.QuestionListService;
 
 @RestController
 @CrossOrigin()
 public class QuestionController {
 	
 	@Autowired
-	QuestionService questionService;
+	QuestionListService questionListService;
 	
 	@GetMapping("/questionList")
 	public List<QuestionListEntity> fetchAllQuestions(){
 		
-		return questionService.fetchAllQuestionSet();
+		return questionListService.fetchAllQuestionSet();
 	}
 	
 	@GetMapping("/questionList/{id}")
 	public QuestionListEntity getQuestionById(@PathVariable("id") int id) {
 		
-		return questionService.getQuestionById(id);
+		return questionListService.getQuestionById(id);
 	}
 
 }
