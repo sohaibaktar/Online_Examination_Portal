@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.exam.entity.StudentEntity;
@@ -59,9 +60,22 @@ public class StudentController {
 	public ResponseEntity<Object> login(@RequestBody StudentEntity inputCsmailpass) {
 		Optional<StudentEntity> student = studentService.login(inputCsmailpass);			
 			if (student.isPresent()) {
-			       return ResponseEntity.ok(Collections.singletonMap("studentId", student.get().getId()));
+			       return ResponseEntity.ok(student.get());
 			} else {
 			      return ResponseEntity.badRequest().body("Invalid email or password");
 			}
 	}
+	
+	// UPdate profile
+	@PutMapping("/students/{id}")
+	public ResponseEntity<Object> updateStudent(@PathVariable("id") int id, @RequestBody @Valid StudentEntity updatedStudent) {
+	    StudentEntity updatedEntity = studentService.updateStudent(id, updatedStudent);
+
+	    if (updatedEntity != null) {
+	        return ResponseEntity.ok(updatedEntity);
+	    } else {
+	        return ResponseEntity.notFound().build(); // You can customize the response as needed
+	    }
+	}
+
 }

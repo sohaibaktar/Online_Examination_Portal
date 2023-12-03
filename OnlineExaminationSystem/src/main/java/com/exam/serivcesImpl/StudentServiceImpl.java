@@ -60,4 +60,26 @@ public class StudentServiceImpl implements StudentService {
 		return Optional.ofNullable(studentRepository.findByEmailAndPassword(inputCsmailpass.getEmail(),inputCsmailpass.getPassword()));
 	}
 
+	
+	@Override
+	public StudentEntity updateStudent(int id, StudentEntity updatedStudent) {
+	    Optional<StudentEntity> existingStudent = studentRepository.findById(id);
+
+	    if (existingStudent.isPresent()) {
+	        StudentEntity currentStudent = existingStudent.get();
+	        // Update fields as needed
+	        currentStudent.setName(updatedStudent.getName());
+	        currentStudent.setCls(updatedStudent.getCls());
+	        currentStudent.setEmail(updatedStudent.getEmail());
+	        currentStudent.setPhone(updatedStudent.getPhone());
+//	        currentStudent.setSchool_id(updatedStudent.getSchool_id());
+//	        currentStudent.setBoard_id(updatedStudent.getBoard_id());
+//	        currentStudent.setPassword(updatedStudent.getPassword());
+
+	        return studentRepository.save(currentStudent);
+	    }
+
+	    return null; // Handle the case where the student with the given ID is not found
+	}
+
 }

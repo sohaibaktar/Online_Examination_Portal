@@ -43,7 +43,7 @@ public class StudentEntity {
 	@JoinColumn(name = "board_id", referencedColumnName = "bId")
 	private BoardEntity board_id;
 	
-	@NotNull(message = "Enter your password")
-	@NotBlank(message = "Please Set your Password")
+//	@NotNull(message = "Enter your password")
+//	@NotBlank(message = "Please Set your Password")
 	private String password;
 }

@@ -22,8 +22,7 @@ import com.exam.services.QuestionService;
 @CrossOrigin(origins = "http://localhost:4200")
 public class AdminController {
 
-	@Autowired
-	QuestionService questionService;
+	
 	
 	@Autowired
 	AdminService adminService;
@@ -48,11 +47,5 @@ public class AdminController {
 		return adminService.fetchAllAdmin();
 	}
 	
-	@PostMapping("/addQuestion")
-	public ResponseEntity<String> addQuestionList(@RequestBody QuestionListEntity questionListEntity){
-		
-		questionService.addQuestionList(questionListEntity);
-		
-		return new ResponseEntity<>("Question Added!!!",HttpStatus.OK);
-	}
+	
 }
