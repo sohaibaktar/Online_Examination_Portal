@@ -20,5 +20,23 @@ public class BoardServiceImpl implements BoardService {
 		
 		return boardRepo.findAll();
 	}
+	
+	@Override
+	public BoardEntity addBoard(BoardEntity boardEntity) {
+		
+		return boardRepo.save(boardEntity);
+	}
+
+	@Override
+	public String deleteBoard(int id) {
+		
+		if(boardRepo.findById(id).isPresent()) {
+			
+			boardRepo.deleteById(id);
+			
+			return "Successfully remove the Board";
+		}
+		return "Sorry no such customer found";
+	}
 
 }

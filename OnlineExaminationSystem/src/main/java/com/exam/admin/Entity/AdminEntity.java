@@ -1,4 +1,4 @@
-package com.exam.admin;
+package com.exam.admin.Entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

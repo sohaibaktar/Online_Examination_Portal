@@ -13,4 +13,6 @@ public interface QuestionListService {
 	QuestionListEntity getQuestionById(int id);			//Fetch Questions By Id.
 
 	QuestionListEntity createQuestionSet(QuestionListEntity questionSet); //create ques set
+	
+	String deleteQuestionList(int id); //Delete Customer By id
 }

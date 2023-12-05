@@ -1,4 +1,4 @@
-package com.exam.adminServiceImpl;
+package com.exam.admin.ServiceImpl;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.exam.admin.AdminEntity;
-import com.exam.adminRepository.AdminRepository;
-import com.exam.adminService.AdminService;
+import com.exam.admin.Entity.AdminEntity;
+import com.exam.admin.Repository.AdminRepository;
+import com.exam.admin.Service.AdminService;
 
 @Service
 public class AdminServiceImpl implements AdminService {

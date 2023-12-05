@@ -1,9 +1,10 @@
-package com.exam.adminService;
+package com.exam.admin.Service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.exam.admin.AdminEntity;
+import com.exam.admin.Entity.AdminEntity;
+
 
 public interface AdminService {
 	

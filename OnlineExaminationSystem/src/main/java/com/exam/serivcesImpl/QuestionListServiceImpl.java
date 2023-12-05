@@ -46,6 +46,19 @@ public class QuestionListServiceImpl implements QuestionListService {
 		// TODO Auto-generated method stub
 		return questionListRepository.save(questionSet);
 	}
+	
+	@Override
+	public String deleteQuestionList(int id) {
+
+		if(questionListRepository.findById(id).isPresent()) {
+			
+			questionListRepository.deleteById(id);
+			
+			return "Successfully remove the QuestionList";
+		}
+		return "Sorry no such QuestionList found";
+	
+	}
 
 
 
